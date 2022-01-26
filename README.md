@@ -99,7 +99,7 @@ Now that we took inspiration from the Jpeg method to formalize image compression
 
 Formally:  
 
- - <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}\theta^T\forall x\in[0,1]"/>, let <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}P[x]=\sum_{i=0}^{D}\alpha_i"/> <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}x^i"/>$ \forall x \in [0, 1]$, let $P[x] = \sum_{i = 0}^{D} \alpha_i x^i$, a polynomial of maximum degree $D$, with $\alpha_i$ real coefficients $\forall i \in [0,D]$.  
+ - <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}\forall%20x\in[0,1]"/>, let <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}P[x]=\sum_{i=0}^{D}\alpha_i"/> <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}x^i"/>$ \forall x \in [0, 1]$, let $P[x] = \sum_{i = 0}^{D} \alpha_i x^i$, a polynomial of maximum degree $D$, with $\alpha_i$ real coefficients $\forall i \in [0,D]$.  
  - $\forall k \in [1, N]$, let us define $x_k \in [0, 1]$ and $y_k = P[x_k] + \epsilon_k$, with $\epsilon_k \sim \mathcal{N}(0, \sigma)$, $\sigma \in \mathbb{R}^+ fixed.$
 
 One of such problems is illustrated in Fig.6.
