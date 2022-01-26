@@ -110,7 +110,7 @@ One of such problems is illustrated in Fig.6.
 
 Given 
 
-<img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}$X=\begin{bmatrix}x_1%20\\%20x_2%20\\%20...%20\\%20x_n\end{bmatrix},\;\;\;\;\;%20y=\begin{bmatrix}y_1%20\\%20y_2%20\\%20...%20\\%20y_n%20\end{bmatrix},\;\;\;\;\;\epsilon=\begin{bmatrix}\epsilon_1\\%20\epsilon_2\\%20...%20\\%20\epsilon_n\end{bmatrix},"/>
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}X=\begin{bmatrix}x_1\\x_2\\...\\x_n\end{bmatrix},\;\;\;\;\;y=\begin{bmatrix}y_1\\y_2\\...\\y_n\end{bmatrix},\;\;\;\;\;\epsilon=\begin{bmatrix}\epsilon_1\\\epsilon_2\\...\\\epsilon_n\end{bmatrix},"/>
 
 Let us define:  
 
