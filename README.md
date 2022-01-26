@@ -164,7 +164,7 @@ We introduced the problematic of image compression and we observed the behavior 
 
 - Then, the mean component is dealt with appart. Indeed, the mean component being often higher than others in real-world images, we noticed that keeping it often yielded results that were "too sparse" (the output coefficients were mostly zero except for the mean component). For a single block:  
     - Let <img src="https://latex.codecogs.com/svg.latex?\small&space;{\color{white}y_{flat}}"/> be a flattened block
-    - <img src="https://latex.codecogs.com/svg.latex?\small&space;{\color{white}y_{AC}=y_{flat}-\text{mean}(y_{flat})\mathbb{1}_{D^2}}"/>
+    - <img src="https://latex.codecogs.com/svg.latex?\small&space;{\color{white}y_{AC}=y_{flat}-\text{mean}(y_{flat})1_{D^2}}"/>
     - Then, let us remove the first line of the intensity basis matrix <img src="https://latex.codecogs.com/svg.latex?\small&space;{\color{white}\Psi}"/> (which corresponds to the mean component). This gives <img src="https://latex.codecogs.com/svg.latex?\small&space;{\color{white}\Psi_{1:}}"/>.
     - Find a pseudo-sparse vector <img src="https://latex.codecogs.com/svg.latex?\small&space;{\color{white}\theta}"/> of size <img src="https://latex.codecogs.com/svg.latex?\small&space;{\color{white}D^2-1}"/> which approximately solves: <img src="https://latex.codecogs.com/svg.latex?\small&space;{\color{white}y_{AC}=\theta^T\Psi_{1:}}"/>. This is achieved via the Horseshoe.  
     - Put less significant values of <img src="https://latex.codecogs.com/svg.latex?\small&space;{\color{white}\theta}"/> to 0 to build <img src="https://latex.codecogs.com/svg.latex?\small&space;{\color{white}\theta_{sparse}}"/>. For instance, keep the 5 most significant ones.
