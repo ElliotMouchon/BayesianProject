@@ -9,6 +9,7 @@ We recommend reading this presentation first. Otherwise, you can go through the 
 - `Image_comp.ipynb`
 - `Evaluation_horseshoe_comp.ipynb`
 
+There might be trouble rendering equations in this `README.md` file. If it is the case, you can check the `README.ipynb` file.
 ___
 ## Introduction
 
@@ -68,7 +69,7 @@ Instead of selecting features in the frequency DCT domain, let us simplify thing
 This way we are able to compute a full intensity basis, see Fig.4.  
 
 <img src="rm_pictures/jpeg_intensity_basis.PNG" alt="Intensity basis" style="height: 250px; margin-left:auto; margin-right:auto"/>
-<figcaption style="text-align:center" ><b>Fig.4 - The intensity basis $\mathcal{B}$ in the case of 8 x 8 blocks.</b></figcaption>  
+<figcaption style="text-align:center" ><b>Fig.4 - The intensity basis <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}\mathcal{B}"/> in the case of 8 x 8 blocks.</b></figcaption>  
 
 <br/>
 <br/>
@@ -76,17 +77,17 @@ This way we are able to compute a full intensity basis, see Fig.4.
 This way, any block of an image can be expressed as a linear combination of these newly defined blocks. In order to express to compression problem formally in this new setting, let us first flatten each of these basis blocks and store them in a new 64 x 64 matrix. In this new matrix $\Psi$, each row represents one of these flattened blocks (see Fig.5).
 
 <img src="rm_pictures/flat_basis.PNG" alt="Intensity basis" style="height: 160px; margin-left:auto; margin-right:auto"/>
-<figcaption style="text-align:center" ><b>Fig.5 - The intensity basis matrix of flattened blocks, $\Psi$.</b></figcaption>
+<figcaption style="text-align:center" ><b>Fig.5 - The intensity basis matrix of flattened blocks, <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}\Psi"/>.</b></figcaption>
 
 <br/>
 <br/>
 
-Now, let <img src="https://latex.codecogs.com/svg.latex?\Large&space;\normalsize{\color{white}y_{flat}"/> be a flattened block. There exist a vector <img src="https://latex.codecogs.com/svg.latex?\Large&space;\normalsize{\color{white}\theta"/> of coefficients such that:  
+Now, let <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}y_{flat}"/> be a flattened block. There exist a vector <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}\theta"/> of coefficients such that:  
 
 
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;{\color{white}y_{flat}=\theta^T\Psi}"/>
 
-The matrix $\Psi$ being invertible, there is an obvious exact solution to this problem. However, in many cases, fully describing a DCT block from a real-world image requires most of the elements from the intensity basis $\mathcal{B}$. In a compression context like Jpeg, the goal would be to find a solution $\theta$ with few non-zero components while keeping $\theta^T \Psi$ as close as possible from $y_{flat}$. In other words, the goal is to find a $\textit{sparse}$ solution for $\theta$. This is where the Horseshoe prior come into play.
+The matrix <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}\Psi"/> being invertible, there is an obvious exact solution to this problem. However, in many cases, fully describing a DCT block from a real-world image requires most of the elements from the intensity basis <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}\mathcal{B}"/>. In a compression context like Jpeg, the goal would be to find a solution <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}\theta"/> with few non-zero components while keeping <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}\theta^T\Psi"/> as close as possible from <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}y_{flat}"/>. In other words, the goal is to find a <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}\theta^T\textit{sparse}"/> solution for $\theta$. This is where the Horseshoe prior come into play.
 
 <br/>
 <br/>
@@ -98,7 +99,7 @@ Now that we took inspiration from the Jpeg method to formalize image compression
 
 Formally:  
 
- - $\forall x \in [0, 1]$, let $P[x] = \sum_{i = 0}^{D} \alpha_i x^i$, a polynomial of maximum degree $D$, with $\alpha_i$ real coefficients $\forall i \in [0,D]$.  
+ - <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}\theta^T\forallx\in[0,1]"/>, let <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}P[x]=\sum_{i=0}^{D}\alpha_i"/> <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}x^i"/>$ \forall x \in [0, 1]$, let $P[x] = \sum_{i = 0}^{D} \alpha_i x^i$, a polynomial of maximum degree $D$, with $\alpha_i$ real coefficients $\forall i \in [0,D]$.  
  - $\forall k \in [1, N]$, let us define $x_k \in [0, 1]$ and $y_k = P[x_k] + \epsilon_k$, with $\epsilon_k \sim \mathcal{N}(0, \sigma)$, $\sigma \in \mathbb{R}^+ fixed.$
 
 One of such problems is illustrated in Fig.6.
