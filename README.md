@@ -28,11 +28,7 @@ ___
 <p align="center">
   <img src="rm_pictures/8x8_blocks.PNG" alt="Slicing an image in 8 x 8 blocks" style="height: 200px; margin-left:auto; margin-right:auto"/>
 </p>
-<p align="center">
-<figcaption align="center" ><b>Fig.1 - Jpeg Slicing operation</b></figcaption>
-</p>
-
-<h1 align="center">Material Bread</h1>
+<h3 align="center">Fig.1 - Jpeg Slicing operation</h3>
 
 <br/>
 <br/>
