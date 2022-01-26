@@ -114,11 +114,11 @@ Given
 
 Let us define:  
 
-<img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}X_{poly}=\begin{bmatrix}1&x_1&x_1^2&...&x_1^D\\1&x_2&x_2^2&...&x_2^D\\...\\1&x_N&x_N^2&...&x_N^D\\\end{bmatrix}"/>
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;\color{white}X_{poly}=\begin{bmatrix}1&x_1&x_1^2&...&x_1^D\\1&x_2&x_2^2&...&x_2^D\\...\\1&x_N&x_N^2&...&x_N^D\\\end{bmatrix}"/>
 
 Then, the polynomial regression problem writes as a simple linear regression problem:  
 
-<img src="https://latex.codecogs.com/svg.latex?\Large&space;\color{white}y = X_{poly} \beta + \epsilon"/>
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;\color{white}y=X_{poly}\beta+\epsilon"/>
 
 We generated and solved such problems in files `Polynomial_Regression_Example.ipynb` and `Horseshoe_poly_reg.py` using linear regression, Ridge regression and the Horseshoe Prior. Check this file for detailed explainations. The main takeaways of our observations can be summarized as follows (see Fig.7):
 
@@ -126,16 +126,16 @@ We generated and solved such problems in files `Polynomial_Regression_Example.ip
 <figcaption style="text-align:center" ><b>Fig.7 - Output coefficient <img src="https://latex.codecogs.com/svg.latex?\small&space;{\color{white}\beta_{lin},\;\beta_{ridge}\;\text{and}\;\beta_{hs}}"/> when solving the problem of Fig.6, with these 3 methods.</b></figcaption>
 
 
-- The linear regression is actually able to find relatively sparse solutions in the sense that there is a noticeable discrepency in the entries of $\beta_{lin}$. Some of its entries are near zero whereas others are very large in comparison. It also achieves the best training accuracy. However, it overfits without regularization. This overfitting is mainly due to the very large coefficient values associated with higher polynomial degrees, which triggers a high dependency on the training set and therefore a high variance.  
+- The linear regression is actually able to find relatively sparse solutions in the sense that there is a noticeable discrepency in the entries of <img src="https://latex.codecogs.com/svg.latex?\small&space;{\color{white}\beta_{lin}}"/>. Some of its entries are near zero whereas others are very large in comparison. It also achieves the best training accuracy. However, it overfits without regularization. This overfitting is mainly due to the very large coefficient values associated with higher polynomial degrees, which triggers a high dependency on the training set and therefore a high variance.  
 
-- The ridge regression coefficient $\beta_{ridge}$ is better in the sense that it is able to offer a solution which is more general, since its polynomial coefficients do not explode. However, it does not manage to create a strong discrepency between the entries. Most polynomial degrees have a similar importance in this solution.  
+- The ridge regression coefficient <img src="https://latex.codecogs.com/svg.latex?\small&space;{\color{white}\beta_{ridge}}"/> is better in the sense that it is able to offer a solution which is more general, since its polynomial coefficients do not explode. However, it does not manage to create a strong discrepency between the entries. Most polynomial degrees have a similar importance in this solution.  
 
-- Strictly speaking, the Horseshoe regression coefficient $\beta_{hs}$ is not sparse either. Indeed, none of its entries are $\textit{exactly}$ zero. This makes sense regarding the construction of the Horseshoe method, as opposed to discrete mixture models. However, since the paper describes it as a way to handle sparsity, we expected to observe many entries $\textit{near}$ zero. It is not really the case here. On second thought, this solution remains better from a sparsity viewpoint. Indeed, it provides a general solution with a stronger discrepency between its entries than Ridge, while avoiding the exploding high degree coefficients of the linear model. As a consequence, at the scale of $\beta_{hs}$, one can consider the entries in [-1, 1] to be near 0 since they do not stand out in comparison with the components around [-5, -4]. It would be harder to make the same conclusion with $\beta_{ridge}$, which entries are more concentrated in [-1, 1.5]. It is a matter of scale !
+- Strictly speaking, the Horseshoe regression coefficient <img src="https://latex.codecogs.com/svg.latex?\small&space;{\color{white}\beta_{hs}}"/> is not sparse either. Indeed, none of its entries are <img src="https://latex.codecogs.com/svg.latex?\small&space;{\color{white}\textit{exactly}}"/> zero. This makes sense regarding the construction of the Horseshoe method, as opposed to discrete mixture models. However, since the paper describes it as a way to handle sparsity, we expected to observe many entries <img src="https://latex.codecogs.com/svg.latex?\small&space;{\color{white}\textit{near}}"/> zero. It is not really the case here. On second thought, this solution remains better from a sparsity viewpoint. Indeed, it provides a general solution with a stronger discrepency between its entries than Ridge, while avoiding the exploding high degree coefficients of the linear model. As a consequence, at the scale of <img src="https://latex.codecogs.com/svg.latex?\small&space;{\color{white}\beta_{hs}}"/>, one can consider the entries in [-1, 1] to be near 0 since they do not stand out in comparison with the components around [-5, -4]. It would be harder to make the same conclusion with <img src="https://latex.codecogs.com/svg.latex?\small&space;{\color{white}\beta_{ridge}}"/>, which entries are more concentrated in [-1, 1.5]. It is a matter of scale !
 
 Note that the distributions used in our implementation of the Horseshoe were the ones recommended in the paper. Specifically: 
-- $\beta_{hs} | \lambda_i, \tau \sim \mathcal{N}(0, \tau \lambda_i)$
-- $\forall i \in [0, D], \lambda_D \sim C^+(0, 1)$, a Cauchy distribution.
-- $\tau \sim C^+(0, 1)$ too.  
+- <img src="https://latex.codecogs.com/svg.latex?\small&space;{\color{white}\beta_{hs}|\lambda_i,\;\tau\sim\mathcal{N}(0,\tau\lambda_i)}"/>
+- <img src="https://latex.codecogs.com/svg.latex?\small&space;{\color{white}\forall%20i%20\in[0,D],\;\lambda_D\sim%20C^+(0,1)}"/>$$, a Cauchy distribution.
+- <img src="https://latex.codecogs.com/svg.latex?\small&space;{\color{white}\tau\sim%20C^+(0,1)}"/> too.  
 
 The Cauchy distribution being heavy tailed, favors very low values of $\beta_{hs}$ while slowly diminishing its tolerance to higher values as they increase. This is what enables this method to provide a tradeoff ensuring that entries of $\beta_{hs}$ may get big only if it is required. Therefore, they tend to be bigger than ridge's ones, but do not explode.  
 Overall, our observations coincide with the theory.
