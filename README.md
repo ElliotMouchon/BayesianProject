@@ -87,7 +87,7 @@ Now, let <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\col
 
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;{\color{white}y_{flat}=\theta^T\Psi}"/>
 
-The matrix <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}\Psi"/> being invertible, there is an obvious exact solution to this problem. However, in many cases, fully describing a DCT block from a real-world image requires most of the elements from the intensity basis <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}\mathcal{B}"/>. In a compression context like Jpeg, the goal would be to find a solution <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}\theta"/> with few non-zero components while keeping <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}\theta^T\Psi"/> as close as possible from <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}y_{flat}"/>. In other words, the goal is to find a <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}\theta^T\textit{sparse}"/> solution for $\theta$. This is where the Horseshoe prior come into play.
+The matrix <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}\Psi"/> being invertible, there is an obvious exact solution to this problem. However, in many cases, fully describing a DCT block from a real-world image requires most of the elements from the intensity basis <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}\mathcal{B}"/>. In a compression context like Jpeg, the goal would be to find a solution <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}\theta"/> with few non-zero components while keeping <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}\theta^T\Psi"/> as close as possible from <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}y_{flat}"/>. In other words, the goal is to find a <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}\textit{sparse}"/> solution for $\theta$. This is where the Horseshoe prior come into play.
 
 <br/>
 <br/>
@@ -99,7 +99,7 @@ Now that we took inspiration from the Jpeg method to formalize image compression
 
 Formally:  
 
- - <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}\theta^T\forallx\in[0,1]"/>, let <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}P[x]=\sum_{i=0}^{D}\alpha_i"/> <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}x^i"/>$ \forall x \in [0, 1]$, let $P[x] = \sum_{i = 0}^{D} \alpha_i x^i$, a polynomial of maximum degree $D$, with $\alpha_i$ real coefficients $\forall i \in [0,D]$.  
+ - <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}\theta^T\forall x\in[0,1]"/>, let <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}P[x]=\sum_{i=0}^{D}\alpha_i"/> <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}x^i"/>$ \forall x \in [0, 1]$, let $P[x] = \sum_{i = 0}^{D} \alpha_i x^i$, a polynomial of maximum degree $D$, with $\alpha_i$ real coefficients $\forall i \in [0,D]$.  
  - $\forall k \in [1, N]$, let us define $x_k \in [0, 1]$ and $y_k = P[x_k] + \epsilon_k$, with $\epsilon_k \sim \mathcal{N}(0, \sigma)$, $\sigma \in \mathbb{R}^+ fixed.$
 
 One of such problems is illustrated in Fig.6.
