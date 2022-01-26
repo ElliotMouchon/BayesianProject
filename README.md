@@ -9,7 +9,7 @@ We recommend reading this presentation first. Otherwise, you can go through the 
 - `Image_comp.ipynb`
 - `Evaluation_horseshoe_comp.ipynb`
 
-There might be trouble rendering equations in this `README.md` file. If it is the case, you can check the `README.ipynb` file.
+There might be troubles rendering equations in this `README.md` file. If it were the case, you can check the `README.ipynb` file.
 ___
 ## Introduction
 
