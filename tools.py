@@ -3,7 +3,7 @@ import numpy as np
 def img_slice(arr, dim):
     """
     turns an array arr into a list of dim x dim blocks.
-    Remark: input array should have simensions which are multiples of dim.
+    Remark: input array should have dimensions which are multiples of dim.
     """
     total_nb_of_blocks = arr.size // (dim ** 2)
     sliced = np.zeros((total_nb_of_blocks, dim, dim))
