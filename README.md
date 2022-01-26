@@ -83,8 +83,7 @@ This way, any block of an image can be expressed as a linear combination of thes
 
 Now, let $y_{flat}$ be a flattened block. There exist a vector $\theta$ of coefficients such that:  
 
-<img src="https://latex.codecogs.com/svg.latex?\Large&space;x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}" title="\Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}" />
-<img src="https://latex.codecogs.com/svg.latex?\Large&space;x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}" />
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;y_{flat} = \theta^T \Psi" style="color:white;"/>
 $y_{flat} = \theta^T \Psi$  
 
 The matrix $\Psi$ being invertible, there is an obvious exact solution to this problem. However, in many cases, fully describing a DCT block from a real-world image requires most of the elements from the intensity basis $\mathcal{B}$. In a compression context like Jpeg, the goal would be to find a solution $\theta$ with few non-zero components while keeping $\theta^T \Psi$ as close as possible from $y_{flat}$. In other words, the goal is to find a $\textit{sparse}$ solution for $\theta$. This is where the Horseshoe prior come into play.
