@@ -110,25 +110,20 @@ One of such problems is illustrated in Fig.6.
 
 Given 
 
-<img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}X=\begin{bmatrix}x_1\\x_2\\...\\x_n\end{bmatrix},\;\;\;\;\;y=\begin{bmatrix}y_1\\y_2\\...\\y_n\end{bmatrix},\;\;\;\;\;\epsilon=\begin{bmatrix}\epsilon_1\\\epsilon_2\\...\\\epsilon_n\end{bmatrix},"/>
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;\color{white}X=\begin{bmatrix}x_1\\x_2\\...\\x_n\end{bmatrix},\;\;\;\;\;y=\begin{bmatrix}y_1\\y_2\\...\\y_n\end{bmatrix},\;\;\;\;\;\epsilon=\begin{bmatrix}\epsilon_1\\\epsilon_2\\...\\\epsilon_n\end{bmatrix},"/>
 
 Let us define:  
 
-$X_{poly} = \begin{bmatrix}
-    1 & x_1 & x_1^2 & ... & x_1^D \\
-    1 & x_2 & x_2^2 & ... & x_2^D \\
-    ...\\
-    1 & x_N & x_N^2 & ... & x_N^D \\
-\end{bmatrix}$
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}X_{poly}=\begin{bmatrix}1&x_1&x_1^2&...&x_1^D\\1&x_2&x_2^2&...&x_2^D\\...\\1&x_N&x_N^2&...&x_N^D\\\end{bmatrix}"/>
 
 Then, the polynomial regression problem writes as a simple linear regression problem:  
 
-$y = X_{poly} \beta + \epsilon$
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;\color{white}y = X_{poly} \beta + \epsilon"/>
 
 We generated and solved such problems in files `Polynomial_Regression_Example.ipynb` and `Horseshoe_poly_reg.py` using linear regression, Ridge regression and the Horseshoe Prior. Check this file for detailed explainations. The main takeaways of our observations can be summarized as follows (see Fig.7):
 
 <img src="rm_pictures/coefs.jpg" alt="Intensity basis" style="height: 200px; margin-left:auto; margin-right:auto"/>
-<figcaption style="text-align:center" ><b>Fig.7 - Output coefficient $\beta_{lin}, \beta_{ridge}$ and $\beta_{hs}$ when solving the problem of Fig.6, with these 3 methods.</b></figcaption>
+<figcaption style="text-align:center" ><b>Fig.7 - Output coefficient <img src="https://latex.codecogs.com/svg.latex?\small&space;{\color{white}\beta_{lin},\;\beta_{ridge}\;\text{and}\;\beta_{hs}}"/> when solving the problem of Fig.6, with these 3 methods.</b></figcaption>
 
 
 - The linear regression is actually able to find relatively sparse solutions in the sense that there is a noticeable discrepency in the entries of $\beta_{lin}$. Some of its entries are near zero whereas others are very large in comparison. It also achieves the best training accuracy. However, it overfits without regularization. This overfitting is mainly due to the very large coefficient values associated with higher polynomial degrees, which triggers a high dependency on the training set and therefore a high variance.  
