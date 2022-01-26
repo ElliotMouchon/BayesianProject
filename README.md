@@ -99,8 +99,8 @@ Now that we took inspiration from the Jpeg method to formalize image compression
 
 Formally:  
 
- - <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}\forall%20x\in[0,1]"/>, let <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}P[x]=\sum_{i=0}^{D}\alpha_i"/> <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}x^i"/>$ \forall x \in [0, 1]$, let $P[x] = \sum_{i = 0}^{D} \alpha_i x^i$, a polynomial of maximum degree $D$, with $\alpha_i$ real coefficients $\forall i \in [0,D]$.  
- - $\forall k \in [1, N]$, let us define $x_k \in [0, 1]$ and $y_k = P[x_k] + \epsilon_k$, with $\epsilon_k \sim \mathcal{N}(0, \sigma)$, $\sigma \in \mathbb{R}^+ fixed.$
+ - <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}\forall%20x\in[0,1]"/>, let <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}P[x]=\sum_{i=0}^{D}\alpha_i%20x^i"/>, a polynomial of maximum degree <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}D"/>, with <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}\alpha_i"/> real coefficients <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}\forall%20i\in[0,D]"/>.  
+ - <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}\forall%20k\in[1, N]"/>, let us define <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}x_k\in[0, 1]"/> and <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}y_k=P[x_k]+\epsilon_k"/>, with <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}\epsilon_k\sim\mathcal{N}(0,\sigma),\;\;\sigma\in\mathbb{R}^+"/> fixed.
 
 One of such problems is illustrated in Fig.6.
 
@@ -108,22 +108,9 @@ One of such problems is illustrated in Fig.6.
 <figcaption style="text-align:center" ><b>Fig.6 - A typical polynomial regression problem.</b></figcaption>
 
 
-Given $X = \begin{bmatrix}
-    x_1\\
-    x_2\\
-    ...\\
-    x_n
-\end{bmatrix}, \; \; \; \; \; y = \begin{bmatrix}
-    y_1\\
-    y_2\\
-    ...\\
-    y_n
-\end{bmatrix}, \; \; \; \; \; \epsilon = \begin{bmatrix}
-    \epsilon_1\\
-    \epsilon_2\\
-    ...\\
-    \epsilon_n
-\end{bmatrix},$
+Given 
+
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}$X=\begin{bmatrix}x_1\\x_2\\...\\x_n\end{bmatrix},\;\;\;\;\;y=\begin{bmatrix}y_1\\y_2\\...\\y_n\end{bmatrix},\;\;\;\;\;\epsilon = \begin{bmatrix}\epsilon_1\\\epsilon_2\\...\\\epsilon_n\end{bmatrix},"/>
 
 Let us define:  
 
