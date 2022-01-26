@@ -25,8 +25,10 @@ ___
   
 ### 1. Slicing an image in 8 x 8 blocks.
 
-<img src="rm_pictures/8x8_blocks.PNG" alt="Slicing an image in 8 x 8 blocks" style="height: 200px; margin-left:auto; margin-right:auto"/>
-<figcaption style="text-align:center" ><b>Fig.1 - Jpeg Slicing operation</b></figcaption>
+<p align="center">
+  <img src="rm_pictures/8x8_blocks.PNG" alt="Slicing an image in 8 x 8 blocks" style="height: 200px; margin-left:auto; margin-right:auto"/>
+  <figcaption style="text-align:center" ><b>Fig.1 - Jpeg Slicing operation</b></figcaption>
+</p>
 
   
 <br/>
@@ -74,7 +76,7 @@ This way we are able to compute a full intensity basis, see Fig.4.
 <br/>
 <br/>
 
-This way, any block of an image can be expressed as a linear combination of these newly defined blocks. In order to express to compression problem formally in this new setting, let us first flatten each of these basis blocks and store them in a new 64 x 64 matrix. In this new matrix $\Psi$, each row represents one of these flattened blocks (see Fig.5).
+This way, any block of an image can be expressed as a linear combination of these newly defined blocks. In order to express to compression problem formally in this new setting, let us first flatten each of these basis blocks and store them in a new 64 x 64 matrix. In this new matrix <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}\Psi}"/>, each row represents one of these flattened blocks (see Fig.5).
 
 <img src="rm_pictures/flat_basis.PNG" alt="Intensity basis" style="height: 160px; margin-left:auto; margin-right:auto"/>
 <figcaption style="text-align:center" ><b>Fig.5 - The intensity basis matrix of flattened blocks, <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}\Psi"/>.</b></figcaption>
@@ -87,7 +89,7 @@ Now, let <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\col
 
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;{\color{white}y_{flat}=\theta^T\Psi}"/>
 
-The matrix <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}\Psi"/> being invertible, there is an obvious exact solution to this problem. However, in many cases, fully describing a DCT block from a real-world image requires most of the elements from the intensity basis <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}\mathcal{B}"/>. In a compression context like Jpeg, the goal would be to find a solution <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}\theta"/> with few non-zero components while keeping <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}\theta^T\Psi"/> as close as possible from <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}y_{flat}"/>. In other words, the goal is to find a <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}\textit{sparse}"/> solution for $\theta$. This is where the Horseshoe prior come into play.
+The matrix <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}\Psi"/> being invertible, there is an obvious exact solution to this problem. However, in many cases, fully describing a DCT block from a real-world image requires most of the elements from the intensity basis <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}\mathcal{B}"/>. In a compression context like Jpeg, the goal would be to find a solution <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}\theta"/> with few non-zero components while keeping <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}\theta^T\Psi"/> as close as possible from <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}y_{flat}"/>. In other words, the goal is to find a <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}\textit{sparse}"/> solution for <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}\theta}"/>. This is where the Horseshoe prior come into play.
 
 <br/>
 <br/>
@@ -160,7 +162,7 @@ We introduced the problematic of image compression and we observed the behavior 
 
 <br/>
 
-- Putting the blocks together forms the compressed image. One only needs to store the non-zero components of the $\theta$ of every block instead of its 5 x 5 values. As in a usual Jpeg process, one could then entropy-encode these coefficients.
+- Putting the blocks together forms the compressed image. One only needs to store the non-zero components of the <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}\theta"/> of every block instead of its 5 x 5 values. As in a usual Jpeg process, one could then entropy-encode these coefficients.
 
 <br/>
 
