@@ -38,8 +38,10 @@ ___
   
 <br/>
 
+<p align="center">
 <img src="rm_pictures/intensity_DCT.jpg" alt="Intensity to DCT" style="height: 160px; margin-left:auto; margin-right:auto"/>
-<figcaption style="text-align:center" ><b>Fig.2 - From intensity domain to frequency domain using DCT</b></figcaption>  
+</p>
+<h4 align="center">Fig.2 - From intensity domain to frequency domain using DCT</h4> 
 
 <br/>
 <br/>
@@ -60,25 +62,30 @@ ___
 
 Instead of selecting features in the frequency DCT domain, let us simplify things by selectings the exact same features but this time in the intensity domain. A DCT 8 x 8 block can be described as a linear combination of its indididual components. By computing the inverse DCT transform of these individual components, we are able to compute a basis of 64 8 x 8 blocks in the intensity domain. Here is an example on a given single DCT component (Fig.3).  
 
-
+<p align="center">
 <img src="rm_pictures/DCT_basis.jpg" alt="Building an intensity basis" style="height: 150px; margin-left:auto; margin-right:auto"/>
-<figcaption style="text-align:center" ><b>Fig.3 - Building an intensity basis: example on a given DCT component.</b></figcaption>  
+</p>
+<h4 align="center">Fig.3 - Building an intensity basis: example on a given DCT component.</h4> 
 
 <br/>
 <br/>
 
 This way we are able to compute a full intensity basis, see Fig.4.  
 
+<p align="center">
 <img src="rm_pictures/jpeg_intensity_basis.PNG" alt="Intensity basis" style="height: 250px; margin-left:auto; margin-right:auto"/>
-<figcaption style="text-align:center" ><b>Fig.4 - The intensity basis <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}\mathcal{B}"/> in the case of 8 x 8 blocks.</b></figcaption>  
+</p>
+<h4 align="center">Fig.4 - The intensity basis <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}\mathcal{B}"/> in the case of 8 x 8 blocks.</h4> 
 
 <br/>
 <br/>
 
 This way, any block of an image can be expressed as a linear combination of these newly defined blocks. In order to express to compression problem formally in this new setting, let us first flatten each of these basis blocks and store them in a new 64 x 64 matrix. In this new matrix <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}\Psi}"/>, each row represents one of these flattened blocks (see Fig.5).
 
+<p align="center">
 <img src="rm_pictures/flat_basis.PNG" alt="Intensity basis" style="height: 160px; margin-left:auto; margin-right:auto"/>
-<figcaption style="text-align:center" ><b>Fig.5 - The intensity basis matrix of flattened blocks, <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}\Psi"/>.</b></figcaption>
+</p>
+<h4 align="center">Fig.5 - The intensity basis matrix of flattened blocks, <img src="https://latex.codecogs.com/svg.latex?\Large&space;\small{\color{white}\Psi"/>.</h4>
 
 <br/>
 <br/>
@@ -105,8 +112,10 @@ Formally:
 
 One of such problems is illustrated in Fig.6.
 
+<p align="center">
 <img src="rm_pictures/poly_reg.PNG" alt="Intensity basis" style="height: 250px; margin-left:auto; margin-right:auto"/>
-<figcaption style="text-align:center" ><b>Fig.6 - A typical polynomial regression problem.</b></figcaption>
+</p>
+<h4 align="center">Fig.6 - A typical polynomial regression problem.</h4>
 
 
 Given 
@@ -123,8 +132,10 @@ Then, the polynomial regression problem writes as a simple linear regression pro
 
 We generated and solved such problems in files `Polynomial_Regression_Example.ipynb` and `Horseshoe_poly_reg.py` using linear regression, Ridge regression and the Horseshoe Prior. Check this file for detailed explainations. The main takeaways of our observations can be summarized as follows (see Fig.7):
 
+<p align="center">
 <img src="rm_pictures/coefs.jpg" alt="Intensity basis" style="height: 200px; margin-left:auto; margin-right:auto"/>
-<figcaption style="text-align:center" ><b>Fig.7 - Output coefficient <img src="https://latex.codecogs.com/svg.latex?\small&space;{\color{white}\beta_{lin},\;\beta_{ridge}\;\text{and}\;\beta_{hs}}"/> when solving the problem of Fig.6, with these 3 methods.</b></figcaption>
+</p>
+<h4 align="center">Fig.7 - Output coefficient <img src="https://latex.codecogs.com/svg.latex?\small&space;{\color{white}\beta_{lin},\;\beta_{ridge}\;\text{and}\;\beta_{hs}}"/> when solving the problem of Fig.6, with these 3 methods.</h4>
 
 
 - The linear regression is actually able to find relatively sparse solutions in the sense that there is a noticeable discrepency in the entries of <img src="https://latex.codecogs.com/svg.latex?\small&space;{\color{white}\beta_{lin}}"/>. Some of its entries are near zero whereas others are very large in comparison. It also achieves the best training accuracy. However, it overfits without regularization. This overfitting is mainly due to the very large coefficient values associated with higher polynomial degrees, which triggers a high dependency on the training set and therefore a high variance.  
@@ -165,16 +176,21 @@ We introduced the problematic of image compression and we observed the behavior 
 
 <br/>
 
+<p align="center">
 <img src="rm_pictures/comp.jpg" alt="Intensity basis" style="height: 200px; margin-left:auto; margin-right:auto"/>
-<figcaption style="text-align:center" ><b>Fig.8 - Image compressed using the Horseshoe. The original image is drawn from the UCID dataset, in TIFF format. From left to right: original image, compression with 6 remaining components, compression with 4 remaining components (out of 25 components).</b></figcaption>
+</p>
+<h4 align="center">Fig.8 - Image compressed using the Horseshoe. The original image is drawn from the UCID dataset, in TIFF format. From left to right: original image, compression with 6 remaining components, compression with 4 remaining components (out of 25 components).</h4>
 
 <br/>
 <br/>
 
 Fig. 8 illustrates the results of a compression using this method. It was applied to a low resolution image because the process is time consuming. The compression process works, but is there any interest in the use of the Horseshoe prior method compared to a simple linear regression followed by a selection of the most interesting features ? Looking at Fig.9 there do not seem to be much difference on first sight. The peaks are similar and it seems that one could select the most interesting coefficients straight in the linear solution. Indeed, this would also lead to a lossy compression, but the Horseshoe method remains superior. Indeed, by considering pseudo-sparse solution, the Horseshoe method tend to compensate the shrinkage of smaller coefficients by adjusting the value of other coefficients. This is why most significant coefficient in the Horseshoe solution do not have the exact same value as the one of the linear solution.
 
+<p align="center">
 <img src="rm_pictures/comp_lr_hs.jpg" alt="Intensity basis" style="height: 200px; margin-left:auto; margin-right:auto"/>
-<figcaption style="text-align:center" ><b>Fig.9 - Comparing output coefficients of a linear regression and the Horseshoe method for the same single block.</b></figcaption>
+</p>
+<h4 align="center">Fig.9 - Comparing output coefficients of a linear regression and the Horseshoe method for the same single block.</h4>
+
 
 <br/>
 <br/>
@@ -183,8 +199,10 @@ The superiority of the Horseshoe solution is illustrated in Fig. 10. See the fil
 
 <br/>
 
+<p align="center">
 <img src="rm_pictures/compare_comp.PNG" alt="Intensity basis" style="height: 240px; margin-left:auto; margin-right:auto"/>
-<figcaption style="text-align:center" ><b>Fig.10 - Comparing the accuracy of both linear and horseshoe compressions depending on the number of non-zero coefficients over the full LEGO picture of figure 8.</b></figcaption>
+</p>
+<h4 align="center">Fig.10 - Comparing the accuracy of both linear and horseshoe compressions depending on the number of non-zero coefficients over the full LEGO picture of figure 8.</h4>
 
 Our observations coincide with the theory again, but of course one would need further analyses to confirm the general behavior of the method, which would be time consuming given its slowness.
 
