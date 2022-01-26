@@ -31,7 +31,9 @@ ___
 <p align="center">
 <figcaption align="center" ><b>Fig.1 - Jpeg Slicing operation</b></figcaption>
 </p>
-  
+
+<h1 align="center">Material Bread</h1>
+
 <br/>
 <br/>
     
