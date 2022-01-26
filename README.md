@@ -134,10 +134,10 @@ We generated and solved such problems in files `Polynomial_Regression_Example.ip
 
 Note that the distributions used in our implementation of the Horseshoe were the ones recommended in the paper. Specifically: 
 - <img src="https://latex.codecogs.com/svg.latex?\small&space;{\color{white}\beta_{hs}|\lambda_i,\;\tau\sim\mathcal{N}(0,\tau\lambda_i)}"/>
-- <img src="https://latex.codecogs.com/svg.latex?\small&space;{\color{white}\forall%20i%20\in[0,D],\;\lambda_D\sim%20C^+(0,1)}"/>$$, a Cauchy distribution.
+- <img src="https://latex.codecogs.com/svg.latex?\small&space;{\color{white}\forall%20i%20\in[0,D],\;\lambda_D\sim%20C^+(0,1)}"/>, a Cauchy distribution.
 - <img src="https://latex.codecogs.com/svg.latex?\small&space;{\color{white}\tau\sim%20C^+(0,1)}"/> too.  
 
-The Cauchy distribution being heavy tailed, favors very low values of $\beta_{hs}$ while slowly diminishing its tolerance to higher values as they increase. This is what enables this method to provide a tradeoff ensuring that entries of $\beta_{hs}$ may get big only if it is required. Therefore, they tend to be bigger than ridge's ones, but do not explode.  
+The Cauchy distribution being heavy tailed, favors very low values of <img src="https://latex.codecogs.com/svg.latex?\small&space;{\color{white}\beta_{hs}}"/> while slowly diminishing its tolerance to higher values as they increase. This is what enables this method to provide a tradeoff ensuring that entries of <img src="https://latex.codecogs.com/svg.latex?\small&space;{\color{white}\beta_{hs}}"/> may get big only if it is required. Therefore, they tend to be bigger than ridge's ones, but do not explode.  
 Overall, our observations coincide with the theory.
 
 <br/>
@@ -148,16 +148,16 @@ ___
 
 We introduced the problematic of image compression and we observed the behavior of the horseshoe prior applied to polynomial regression. Let us move to image compression. The code is available in files `Image_comp.ipynb` and `Horseshoe_img_comp.py`.We decided to proceed in the following manner:
 
-- First slice the image in 5 x 5 blocks, in a jpeg fashion. Empirically, this block size seemed to be a good tradeoff as MCMC computations get slower with increasing block sizes. Having a small block size also puts more weight on the prior, since as a regression problem the block size can be considered as the number of observations. Therefore, it ensures sparse results. The block size is denoted by $D = 5$.  
+- First slice the image in 5 x 5 blocks, in a jpeg fashion. Empirically, this block size seemed to be a good tradeoff as MCMC computations get slower with increasing block sizes. Having a small block size also puts more weight on the prior, since as a regression problem the block size can be considered as the number of observations. Therefore, it ensures sparse results. The block size is denoted by <img src="https://latex.codecogs.com/svg.latex?\small&space;{\color{white}D = 5}"/>.  
 
 - Then, the mean component is dealt with appart. Indeed, the mean component being often higher than others in real-world images, we noticed that keeping it often yielded results that were "too sparse" (the output coefficients were mostly zero except for the mean component). For a single block:  
-    - Let $y_{flat}$ be a flattened block
-    - $y_{AC} = y_{flat} - \text{mean}(y_{flat})\mathbb{1}_{D^2}$
-    - Then, let us remove the first line of the intensity basis matrix $\Psi$ (which corresponds to the mean component). This gives $\Psi_{1:}$.
-    - Find a pseudo-sparse vector $\theta$ of size $D^2 - 1$ which approximately solves: $y_{AC} = \theta^T \Psi_{1:}$. This is achieved via the Horseshoe.  
-    - Put less significant values of $\theta$ to 0 to build $\theta_{sparse}$. For instance, keep the 5 most significant ones.
-    - Finally: $y_{flat}^{comp} = \theta_{sparse}^T \Psi_{1:} + \text{mean}(y_{flat})\mathbb{1}_{D^2}$  
-    
+    - Let <img src="https://latex.codecogs.com/svg.latex?\small&space;{\color{white}y_{flat}}"/> be a flattened block
+    - <img src="https://latex.codecogs.com/svg.latex?\small&space;{\color{white}y_{AC}=y_{flat}-\text{mean}(y_{flat})\mathbb{1}_{D^2}}"/>
+    - Then, let us remove the first line of the intensity basis matrix <img src="https://latex.codecogs.com/svg.latex?\small&space;{\color{white}\Psi}"/> (which corresponds to the mean component). This gives <img src="https://latex.codecogs.com/svg.latex?\small&space;{\color{white}\Psi_{1:}}"/>.
+    - Find a pseudo-sparse vector <img src="https://latex.codecogs.com/svg.latex?\small&space;{\color{white}\theta}"/> of size <img src="https://latex.codecogs.com/svg.latex?\small&space;{\color{white}D^2-1}"/> which approximately solves: <img src="https://latex.codecogs.com/svg.latex?\small&space;{\color{white}y_{AC}=\theta^T\Psi_{1:}}"/>. This is achieved via the Horseshoe.  
+    - Put less significant values of <img src="https://latex.codecogs.com/svg.latex?\small&space;{\color{white}\theta}"/> to 0 to build <img src="https://latex.codecogs.com/svg.latex?\small&space;{\color{white}\theta_{sparse}}"/>. For instance, keep the 5 most significant ones.
+    - Finally: <img src="https://latex.codecogs.com/svg.latex?\small&space;{\color{white}y_{flat}^{comp}=\theta_{sparse}^T\Psi_{1:}+\text{mean}(y_{flat})\mathbb{1}_{D^2}}"/>  
+
 <br/>
 
 - Putting the blocks together forms the compressed image. One only needs to store the non-zero components of the $\theta$ of every block instead of its 5 x 5 values. As in a usual Jpeg process, one could then entropy-encode these coefficients.
