@@ -4,6 +4,8 @@ __Maxime Bouton, Elliot Mouchon__
 
 <br/>
 
+This project was achieved as a part of the course *Bayesian Machine Learning* of the M2 Data Science at the University of Lille. It is an application of the paper [*Handling Sparsity Via the Horseshoe*](https://www.projectrhea.org/rhea/index.php/Homework3ECE438JPEG), Carlos M. Carvalho, Nicholas G. Polson, James G. Scott.
+
 We recommend reading this presentation first. Otherwise, you can go through the `ipynb` files in the following order:  
 - `Polynomial_Regression_Example.ipynb`
 - `Image_comp.ipynb`
