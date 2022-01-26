@@ -81,9 +81,8 @@ This way, any block of an image can be expressed as a linear combination of thes
 <br/>
 <br/>
 
-Now, let $y_{flat}$ be a flattened block. There exist a vector $\theta$ of coefficients such that:  
+Now, let <img src="https://latex.codecogs.com/svg.latex?\Large&space;{\color{white}y_{flat}=\theta^T\Psi}"/> be a flattened block. There exist a vector $\theta$ of coefficients such that:  
 
-<img src="https://latex.codecogs.com/svg.latex?\Large&space;{\color{white}x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}}"/>
 
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;{\color{white}y_{flat}=\theta^T\Psi}"/>
 
