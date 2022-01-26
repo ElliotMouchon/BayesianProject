@@ -27,9 +27,10 @@ ___
 
 <p align="center">
   <img src="rm_pictures/8x8_blocks.PNG" alt="Slicing an image in 8 x 8 blocks" style="height: 200px; margin-left:auto; margin-right:auto"/>
-  <figcaption style="text-align:center" ><b>Fig.1 - Jpeg Slicing operation</b></figcaption>
 </p>
-
+<p align="center">
+<figcaption style="text-align:center" ><b>Fig.1 - Jpeg Slicing operation</b></figcaption>
+</p>
   
 <br/>
 <br/>
