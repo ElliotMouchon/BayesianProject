@@ -160,7 +160,7 @@ ___
 
 We introduced the problematic of image compression and we observed the behavior of the horseshoe prior applied to polynomial regression. Let us move to image compression. The code is available in files `Image_comp.ipynb` and `Horseshoe_img_comp.py`.We decided to proceed in the following manner:
 
-- First slice the image in 5 x 5 blocks, in a jpeg fashion. Empirically, this block size seemed to be a good tradeoff as MCMC computations get slower with increasing block sizes. Having a small block size also puts more weight on the prior, since as a regression problem the block size can be considered as the number of observations. Therefore, it ensures sparse results. The block size is denoted by <img src="https://latex.codecogs.com/svg.latex?\small&space;{\color{white}D = 5}"/>.  
+- First slice the image in 5 x 5 blocks, in a jpeg fashion. Empirically, this block size seemed to be a good tradeoff as MCMC computations get slower with increasing block sizes. Having a small block size also puts more weight on the prior, since as a regression problem the block size can be considered as the number of observations. Therefore, it ensures sparse results. The block size is denoted by <img src="https://latex.codecogs.com/svg.latex?\small&space;{\color{white}D=5}"/>.  
 
 - Then, the mean component is dealt with appart. Indeed, the mean component being often higher than others in real-world images, we noticed that keeping it often yielded results that were "too sparse" (the output coefficients were mostly zero except for the mean component). For a single block:  
     - Let <img src="https://latex.codecogs.com/svg.latex?\small&space;{\color{white}y_{flat}}"/> be a flattened block
@@ -168,7 +168,7 @@ We introduced the problematic of image compression and we observed the behavior 
     - Then, let us remove the first line of the intensity basis matrix <img src="https://latex.codecogs.com/svg.latex?\small&space;{\color{white}\Psi}"/> (which corresponds to the mean component). This gives <img src="https://latex.codecogs.com/svg.latex?\small&space;{\color{white}\Psi_{1:}}"/>.
     - Find a pseudo-sparse vector <img src="https://latex.codecogs.com/svg.latex?\small&space;{\color{white}\theta}"/> of size <img src="https://latex.codecogs.com/svg.latex?\small&space;{\color{white}D^2-1}"/> which approximately solves: <img src="https://latex.codecogs.com/svg.latex?\small&space;{\color{white}y_{AC}=\theta^T\Psi_{1:}}"/>. This is achieved via the Horseshoe.  
     - Put less significant values of <img src="https://latex.codecogs.com/svg.latex?\small&space;{\color{white}\theta}"/> to 0 to build <img src="https://latex.codecogs.com/svg.latex?\small&space;{\color{white}\theta_{sparse}}"/>. For instance, keep the 5 most significant ones.
-    - Finally: <img src="https://latex.codecogs.com/svg.latex?\small&space;{\color{white}y_{flat}^{comp}=\theta_{sparse}^T\Psi_{1:}+\text{mean}(y_{flat})\mathbb{1}_{D^2}}"/>  
+    - Finally: <img src="https://latex.codecogs.com/svg.latex?\small&space;{\color{white}y_{flat}^{comp}=\theta_{sparse}^T\Psi_{1:}+\text{mean}(y_{flat})1_{D^2}}"/>  
 
 <br/>
 
