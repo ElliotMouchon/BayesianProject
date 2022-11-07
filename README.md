@@ -4,7 +4,7 @@ __Maxime Bouton, Elliot Mouchon__
 
 <br/>
 
-This project was achieved as a part of the course *Bayesian Machine Learning* of the M2 Data Science at the University of Lille. It is an application of the paper [*Handling Sparsity Via the Horseshoe*](https://www.projectrhea.org/rhea/index.php/Homework3ECE438JPEG), Carlos M. Carvalho, Nicholas G. Polson, James G. Scott.
+This project was achieved as a part of the course *Bayesian Machine Learning* of the M2 Data Science at the University of Lille. It is an application of the paper [*Handling Sparsity Via the Horseshoe*](https://www.projectrhea.org/rhea/index.php/Homework3ECE438JPEG), Carlos M. Carvalho, Nicholas G. Polson, James G. Scott. The goal was to make a review of various papers in groups of 2 students, and then to create and implement our own project of a concrete use of the paper we chose. We decided to try using the Horseshoe prior as an image compression method. The review of the paper is available [*here*](https://drive.google.com/file/d/1jtsvaHQop38aQSmt8V6ETkk-X8-Yn4gG/view?usp=sharing). Note that this was a rather short project (~3 weeks while working on other projects in parallel).
 
 We recommend reading this presentation first. Otherwise, you can go through the `ipynb` files in the following order:  
 - `Polynomial_Regression_Example.ipynb`
